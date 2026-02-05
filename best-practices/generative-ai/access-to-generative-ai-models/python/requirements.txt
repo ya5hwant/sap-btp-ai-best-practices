@@ -1,6 +1,6 @@
 notebook
 jupyterlab
-sap-ai-sdk-gen
+sap-ai-sdk-gen[all]
 aioboto3
 python-dotenv
 boto3  # for Amazon Native Implementation
