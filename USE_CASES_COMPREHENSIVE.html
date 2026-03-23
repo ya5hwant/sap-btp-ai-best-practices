@@ -1,0 +1,1110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SAP BTP AI - 23 Use Cases Complete Interview Guide</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --sap-blue: #0064d9;
+            --sap-light: #f0f0f0;
+            --sap-dark: #1a1a1a;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+            color: #333;
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--sap-blue) 0%, #0052a3 100%);
+            color: white;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0, 100, 217, 0.15);
+            margin-bottom: 2rem;
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        header p {
+            font-size: 1.1rem;
+            opacity: 0.95;
+        }
+
+        .container-main {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 1rem 2rem;
+        }
+
+        .nav-tabs {
+            border-bottom: 3px solid var(--sap-blue);
+            background: white;
+            border-radius: 12px 12px 0 0;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            flex-wrap: wrap;
+            gap: 0;
+        }
+
+        .nav-link {
+            color: #666;
+            border: none;
+            border-bottom: 3px solid transparent;
+            font-weight: 500;
+            padding: 0.75rem 0.6rem;
+            font-size: 0.8rem;
+            transition: all 0.3s ease;
+            margin: 0;
+        }
+
+        .nav-link:hover {
+            color: var(--sap-blue);
+            background-color: rgba(0, 100, 217, 0.05);
+        }
+
+        .nav-link.active {
+            color: white;
+            background: var(--sap-blue);
+            border-bottom-color: var(--sap-blue);
+        }
+
+        .tab-content {
+            background: white;
+            border-radius: 0 0 12px 12px;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
+            padding: 2rem;
+            max-height: 90vh;
+            overflow-y: auto;
+        }
+
+        .use-case-title {
+            color: var(--sap-blue);
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            border-bottom: 3px solid var(--sap-light);
+            padding-bottom: 1rem;
+        }
+
+        .section-header {
+            color: var(--sap-blue);
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-top: 1.5rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .summary-box {
+            background: linear-gradient(135deg, rgba(0, 100, 217, 0.05) 0%, rgba(0, 100, 217, 0.02) 100%);
+            border-left: 4px solid var(--sap-blue);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-bottom: 1.5rem;
+        }
+
+        .pain-point {
+            background: #fff3cd;
+            border-left: 4px solid #ff9800;
+            padding: 1.5rem;
+            border-radius: 6px;
+            margin-bottom: 1rem;
+            line-height: 1.6;
+        }
+
+        .approach-section {
+            background: #e3f2fd;
+            border-left: 4px solid #2196f3;
+            padding: 1.5rem;
+            border-radius: 6px;
+            margin-bottom: 1rem;
+            line-height: 1.6;
+        }
+
+        .decision-box {
+            background: #f3e5f5;
+            border-left: 4px solid #9c27b0;
+            padding: 1.5rem;
+            border-radius: 6px;
+            margin-bottom: 1rem;
+            line-height: 1.6;
+        }
+
+        .risk-box {
+            background: #fce4ec;
+            border-left: 4px solid #e91e63;
+            padding: 1.5rem;
+            border-radius: 6px;
+            margin-bottom: 1rem;
+        }
+
+        .interview-box {
+            background: #e8f5e9;
+            border-left: 4px solid #4caf50;
+            padding: 1.5rem;
+            border-radius: 6px;
+            margin-bottom: 1rem;
+            line-height: 1.6;
+        }
+
+        .discovery-box {
+            background: #f1f8e9;
+            border-left: 4px solid #8bc34a;
+            padding: 1.5rem;
+            border-radius: 6px;
+            margin-bottom: 1rem;
+        }
+
+        code {
+            background: #f5f5f5;
+            padding: 0.2rem 0.4rem;
+            border-radius: 4px;
+            font-family: 'Courier New', monospace;
+            color: #d32f2f;
+        }
+
+        pre {
+            background: #1e1e1e;
+            color: #d4d4d4;
+            padding: 1rem;
+            border-radius: 8px;
+            overflow-x: auto;
+            margin: 1rem 0;
+            font-size: 0.85rem;
+        }
+
+        pre code {
+            color: #d4d4d4;
+            background: none;
+            padding: 0;
+        }
+
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin: 1rem 0;
+        }
+
+        .tech-badge {
+            background: var(--sap-blue);
+            color: white;
+            padding: 0.4rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+
+        .tech-badge.frontend {
+            background: #4caf50;
+        }
+
+        .tech-badge.backend {
+            background: #2196f3;
+        }
+
+        .tech-badge.db {
+            background: #ff9800;
+        }
+
+        .tech-badge.ml {
+            background: #9c27b0;
+        }
+
+        .success-metrics {
+            background: #c8e6c9;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-top: 1rem;
+        }
+
+        .success-metrics ul {
+            margin: 0;
+            padding-left: 1.5rem;
+        }
+
+        .success-metrics li {
+            margin-bottom: 0.5rem;
+            line-height: 1.5;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1rem 0;
+            font-size: 0.9rem;
+        }
+
+        table th {
+            background: var(--sap-blue);
+            color: white;
+            padding: 0.8rem;
+            text-align: left;
+            font-weight: 600;
+        }
+
+        table td {
+            padding: 0.8rem;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        table tr:hover {
+            background: var(--sap-light);
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 2px solid #e0e0e0;
+            color: #666;
+        }
+
+        .search-box {
+            margin-bottom: 1.5rem;
+        }
+
+        .search-box input {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 1rem;
+        }
+
+        .search-box input:focus {
+            outline: none;
+            border-color: var(--sap-blue);
+            box-shadow: 0 0 0 3px rgba(0, 100, 217, 0.1);
+        }
+
+        .back-to-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            width: 50px;
+            height: 50px;
+            background: var(--sap-blue);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            box-shadow: 0 4px 12px rgba(0, 100, 217, 0.4);
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        .back-to-top:hover {
+            background: #0052a3;
+            transform: translateY(-5px);
+        }
+
+        .back-to-top.show {
+            display: flex;
+        }
+
+        .quote-text {
+            font-style: italic;
+            color: #555;
+            margin: 0.5rem 0;
+            padding-left: 1rem;
+            border-left: 3px solid var(--sap-blue);
+        }
+
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 1.5rem;
+            }
+
+            .nav-link {
+                padding: 0.5rem 0.4rem;
+                font-size: 0.65rem;
+            }
+
+            .tab-content {
+                padding: 1rem;
+                max-height: 85vh;
+            }
+
+            .use-case-title {
+                font-size: 1.3rem;
+            }
+
+            .section-header {
+                font-size: 1.1rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1><i class="fas fa-brain"></i> SAP BTP AI Use Cases</h1>
+        <p>23 Complete Real-World AI/ML Implementation Patterns - Full Interview Preparation</p>
+    </header>
+
+    <div class="container-main">
+        <div class="search-box">
+            <input type="text" id="usecase-search" placeholder="🔍 Search use cases...">
+        </div>
+
+        <ul class="nav nav-tabs" id="usecase-tabs" role="tablist">
+            <!-- Tabs generated by JavaScript -->
+        </ul>
+
+        <div class="tab-content" id="usecase-content">
+            <!-- Tab content generated by JavaScript -->
+        </div>
+    </div>
+
+    <button class="back-to-top" id="backToTop">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <footer class="footer">
+        <p>© 2024 SAP BTP AI Best Practices | Complete Interview Preparation Guide</p>
+        <p style="font-size: 0.9rem; margin-top: 0.5rem;">23 Use Cases • Full Implementation Details • Interview Tips &
+            Success Metrics</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        const useCases = [
+            {
+                id: '01-post-sales-chatbot',
+                title: '01: Post-Sales Chatbot (Automotive)',
+                short: '01 Post-Sales Chatbot',
+                painPoint: '"Our customers call support for simple questions about service status, warranty, and appointments. 30-40% of calls are routine, consuming staff and frustrating customers."',
+                businessImpact: '30-40% of calls are routine • Cost: €5-10 per call • Opportunity: Save €100k+/year • NPS improvement',
+                discoveryQuestions: ['How many daily inquiries?', 'Top 5-10 customer questions?', 'Customer data centralized?', 'Acceptable response latency?', 'Escalation path if bot fails?'],
+                approach: '<strong>LangGraph architecture:</strong> Multi-step reasoning (customer → vehicle → history). Streaming responses for UX. Tools: find_client, get_service_history, get_warranty_status, schedule_appointment. FastAPI + UI5 frontend.',
+                keyDecisions: [
+                    { title: 'LangGraph over Rasa', text: 'Multi-turn reasoning, state persistence, easy SAP integration, custom business logic' },
+                    { title: 'CSV → HANA scaling', text: 'MVP: CSV iteration. Prod: HANA for 1M+ records, caching, concurrency' },
+                    { title: 'Session Redis', text: 'Distributed state with 30-min TTL for security and scalability' }
+                ],
+                implementation: '<pre>from langgraph.graph import StateGraph\ngraph = StateGraph(AgentState)\ngraph.add_node("fetch_data", fetch_node)\ngraph.add_edge("identify", "fetch")</pre>',
+                risks: [
+                    { risk: 'Wrong tool call', prob: 'Medium', mitigation: 'Pre-flight validation, detailed descriptions' },
+                    { risk: 'Hallucinations', prob: 'Medium', mitigation: 'Constrain to tool results only' },
+                    { risk: 'Data leaks', prob: 'High', mitigation: 'Audit logs, encryption' }
+                ],
+                metrics: ['40% call handling → €100k savings', '<1min response vs 10min human', 'NPS >50', '<5% escalation rate', '>60% repeat usage'],
+                interviewTips: [
+                    { q: 'Multi-system data?', a: 'Abstract layer queries all parallel + HANA cache for future' },
+                    { q: 'Ambiguous names?', a: 'Ask for email/VIN to disambiguate or escalate' },
+                    { q: 'Multilingual?', a: 'LLM handles naturally, store language preference' }
+                ],
+                tech: ['LangGraph', 'FastAPI', 'UI5', 'Redis', 'HANA']
+            },
+            {
+                id: '02-anomaly-detection',
+                title: '02: Anomaly Detection (Sales Orders)',
+                short: '02 Anomaly Detection',
+                painPoint: '"Unusual orders slip through—fraud or data entry errors. Lost €50k last month on improper discount to new customer. Need automated flagging with high confidence."',
+                businessImpact: '€500k/year fraud loss • 40% false positive rate (team ignores) • Target: Catch 80% with <5% FP',
+                discoveryQuestions: ['Orders/day volume?', 'Anomaly types?', 'False positive tolerance?', 'Labeled historical data?', 'Action on flag?'],
+                approach: '<strong>Isolation Forest + SHAP:</strong> Unsupervised learning (no labels needed). Fast O(n) trees. Explainability: SHAP (technical) + LLM (business narrative). Weekly retraining. Batch scoring every 4 hours.',
+                keyDecisions: [
+                    { title: 'Batch > Real-time V1', text: 'Faster to build, more accurate (full-day context), cost-effective, sufficient' },
+                    { title: 'Weekly retrain', text: 'Monitor performance drift >5%, keep 5 versions for rollback' },
+                    { title: 'HANA storage', text: 'Columnar, indexes, date partitioning for fast queries' }
+                ],
+                implementation: '<pre>from sklearn.ensemble import IsolationForest\nmodel = IsolationForest(contamination=0.05)\nscores = model.score_samples(data)\nexplainer = shap.TreeExplainer(model)</pre>',
+                risks: [
+                    { risk: 'FP rate too high', prob: 'Medium', mitigation: 'Start conservative 0.8+ threshold' },
+                    { risk: 'Model drift', prob: 'Medium', mitigation: 'Drift detection, auto-retrain' },
+                    { risk: 'No trust', prob: 'Medium', mitigation: 'Weekly calibration, ROI transparency' }
+                ],
+                metrics: ['80% anomaly catch → €320k savings', '<5% false positives', '<30min detection', '<5min review time', '>99.5% uptime'],
+                interviewTips: [
+                    { q: 'Why not DL?', a: 'Needs 1000s labeled samples. IF needs zero labels, 100x faster. Use IF unless massive labeled dataset' },
+                    { q: 'Class imbalance?', a: 'IF naturally isolates outliers, no class balancing needed vs supervised' },
+                    { q: 'False negatives?', a: 'Lower contamination (10%) or threshold (0.7) to be aggressive, trade FP' }
+                ],
+                tech: ['Isolation Forest', 'SHAP', 'scikit-learn', 'HANA', 'Python']
+            },
+            {
+                id: '03-customer-credit-check',
+                title: '03: Customer Credit Check',
+                short: '03 Credit Check',
+                painPoint: '"Manual credit evaluation is inconsistent. Analysts disagree on approvals (±20% variance). Need consistent extraction, validation, and compliance audit trail."',
+                businessImpact: 'Process time: 1 day → target 2 hours • Inconsistency: ±20% variance • Compliance risk: Audit gaps',
+                discoveryQuestions: ['Current process walkthrough?', 'Docs per application?', 'Extraction accuracy target?', 'AI decides or assists?', 'Policy rules documented?'],
+                approach: '<strong>SAP Document AI + Validation + Rule Engine:</strong> Extract KYC/CSF with confidence scores. Cross-validate: RFC match, addresses, dates plausible. Rule-based policy (compliance > ML). Audit trail on every decision.',
+                keyDecisions: [
+                    { title: 'Document AI', text: '95%+ accuracy, pre-trained on financial docs, confidence scores' },
+                    { title: 'Validation layer', text: 'Cross-document consistency checks for fraud signals' },
+                    { title: 'Rules not ML', text: 'Regulatory requirement: explainability per decision' }
+                ],
+                implementation: '<pre>extracted = document_ai.process(doc)\nvalidation_score = check_consistency()\nif validation_score > 70:\n  apply_policy_rules()</pre>',
+                risks: [
+                    { risk: 'Extraction fails', prob: 'Medium', mitigation: 'Confidence <95% → manual review' },
+                    { risk: 'FP/FN policy', prob: 'Medium', mitigation: 'Adjust thresholds, test on holdout' },
+                    { risk: 'Compliance', prob: 'High', mitigation: 'Audit log every decision' }
+                ],
+                metrics: ['2 hour approval time', '<5% variance', '100% audit trail', 'Compliance ready', '>90% auto-approve rate'],
+                interviewTips: [
+                    { q: 'Confidence scores low?', a: 'Request new docs or route to manual review' },
+                    { q: 'Policy conflicts?', a: 'Use decision trees, document every rule' },
+                    { q: 'False denials?', a: 'Adjust thresholds, monitor impact' }
+                ],
+                tech: ['Document AI', 'SAP', 'Python', 'Rule Engine']
+            },
+            {
+                id: '04-diagram-bpmn',
+                title: '04: Diagram-to-BPMN Converter',
+                short: '04 Diagram BPMN',
+                painPoint: '"Analysts draw business processes on whiteboard/Visio. Converting to BPMN for Signavio is manual—2 hours per diagram × 20/month = 40 hours wasted."',
+                businessImpact: 'Manual conversion: 2 hours × 20 diagrams = 40 hours/month = 1 FTE',
+                discoveryQuestions: ['Diagram formats?', 'Complexity levels?', 'BPMN usage?', 'Creation frequency?', 'Consistency?'],
+                approach: '<strong>Vision LLM + JSON → BPMN XML:</strong> Upload diagram → Claude/GPT-4o extracts structure (tasks, decisions, flows, swimlanes) → JSON validation → BPMN XML template generation → Signavio import.',
+                keyDecisions: [
+                    { title: 'Vision LLM', text: 'Claude 3.5 Sonnet: handles complex diagrams, swimlanes, annotations' },
+                    { title: 'JSON intermediate', text: 'Validate before XML, allow user editing before final' },
+                    { title: 'Template BPMN', text: 'Standard XML templates, deterministic conversion' }
+                ],
+                implementation: '<pre>json_result = llm.extract_diagram(image)\nvalidate(json_result)\nbpmn_xml = generate_from_template(json_result)</pre>',
+                risks: [
+                    { risk: 'Complex diagrams', prob: 'Medium', mitigation: 'Request simple structures or manual' },
+                    { risk: 'Handwriting', prob: 'Medium', mitigation: 'Scanned clarity requirement' },
+                    { risk: 'JSON validation', prob: 'Low', mitigation: 'Schema validation before XML' }
+                ],
+                metrics: ['40 hours/month saved', '95%+ accuracy', '<5min per diagram', 'Zero rework rate'],
+                interviewTips: [
+                    { q: 'Swimlanes?', a: 'LLM identifies ownership, BPMN lanes' },
+                    { q: 'Errors?', a: 'JSON preview before convert, user can edit' },
+                    { q: 'Complex logic?', a: 'Request structured diagram or escalate' }
+                ],
+                tech: ['Claude Vision', 'JSON', 'BPMN XML', 'Signavio']
+            },
+            {
+                id: '05-log-analyzer',
+                title: '05: AI Log Analyzer',
+                short: '05 Log Analyzer',
+                painPoint: '"Thousands of error logs daily. Most noise. Operators waste 50% of time sorting—need intelligent filtering, clustering, SAP OSS linking."',
+                businessImpact: 'MTTR: 8 hours → target 30 min • Operator productivity: 50% saved • Critical errors missed',
+                discoveryQuestions: ['Logs/day volume?', 'Log sources?', 'Critical %?', 'Error code mapping?', 'Current MTTR?'],
+                approach: '<strong>Log normalization + LLM triage + OSS integration:</strong> Normalize logs to JSON. LLM assesses severity, impact, root cause. Link to SAP OSS notes. Prioritize by impact. Batch processing hourly.',
+                keyDecisions: [
+                    { title: 'Normalize first', text: 'Fast search, pattern detection, LLM understanding' },
+                    { title: 'LLM for reasoning', text: 'Severity, impact, root cause in business language' },
+                    { title: 'OSS grounding', text: 'Link to SAP solutions, not hallucinations' }
+                ],
+                implementation: '<pre>normalized = normalize_log(raw)\nanalysis = llm.assess(normalized)\noss_notes = link_to_oss(analysis)</pre>',
+                risks: [
+                    { risk: 'LLM hallucinations', prob: 'Medium', mitigation: 'Ground in OSS notes only' },
+                    { risk: 'False severity', prob: 'Medium', mitigation: 'History-based tuning' },
+                    { risk: 'OSS API down', prob: 'Low', mitigation: 'Cache, fallback' }
+                ],
+                metrics: ['MTTR: 30 minutes', '95% critical catch', '<5% false positives', '>99% uptime'],
+                interviewTips: [
+                    { q: 'Real-time vs batch?', a: 'Batch hourly more efficient, real-time if urgent alerts' },
+                    { q: 'Unknown errors?', a: 'Cluster similar, request OSS or escalate' },
+                    { q: 'Integration?', a: 'API to log ingestion pipeline' }
+                ],
+                tech: ['LLM', 'SAP OSS', 'Python', 'Log Pipeline']
+            },
+            {
+                id: '06-video-monitoring',
+                title: '06: Video Incident & Safety Monitoring',
+                short: '06 Video Safety',
+                painPoint: '"Manual warehouse video monitoring is expensive & inconsistent. Workers not wearing hard hats, equipment misuse. False alarms cause evacuations."',
+                businessImpact: '5-10 incidents/month • €10k per incident • High false alarm cost',
+                discoveryQuestions: ['Key incidents?', 'False alarm tolerance?', 'Live vs batch?', 'Alert latency?', 'Privacy policy?'],
+                approach: '<strong>Gemini 2.5 Pro + Frame extraction + Confidence thresholds:</strong> Extract key frames (motion detection or 1/sec). Send to Vision LLM. High confidence threshold (>90%) to avoid false alarms. Alert only on critical.',
+                keyDecisions: [
+                    { title: 'Frame sampling', text: 'Motion detection or 1-sec intervals to reduce costs' },
+                    { title: 'High confidence', text: '>90% threshold to minimize false positives/evacuations' },
+                    { title: 'Real-time architecture', text: 'Stream processing for low-latency alerts' }
+                ],
+                implementation: '<pre>frames = extract_frames(video, strategy="motion")\nfor frame in frames:\n  result = gemini.analyze(frame)\n  if result.confidence > 0.9:\n    alert(result)</pre>',
+                risks: [
+                    { risk: 'False positives', prob: 'High', mitigation: 'High confidence threshold' },
+                    { risk: 'Missed incidents', prob: 'Medium', mitigation: 'Lower threshold gradually' },
+                    { risk: 'Privacy concerns', prob: 'High', mitigation: 'Compliance, data minimization' }
+                ],
+                metrics: ['80% incident catch', '<2% false alarm', '<30sec alert time', '>99% uptime'],
+                interviewTips: [
+                    { q: 'Night vision?', a: 'IR cameras improve detection' },
+                    { q: 'Weather?', a: 'Train on rainy/snowy conditions' },
+                    { q: 'Privacy?', a: 'Anonymize frames, delete after X days' }
+                ],
+                tech: ['Gemini 2.5 Pro', 'Python', 'Video Processing']
+            },
+            {
+                id: '07-procurement',
+                title: '07: Intelligent Procurement Assistant',
+                short: '07 Procurement',
+                painPoint: '"Manual commodity code extraction from contracts is inconsistent. Need to validate UNSPSC codes, flag ambiguous cases. Current: 1 hour per contract."',
+                businessImpact: '1 hour × 200 contracts = 200 hours/month saved',
+                discoveryQuestions: ['Contract formats?', 'Code complexity?', 'Accuracy target?', 'Integration point?', 'Code reference?'],
+                approach: '<strong>Pattern matching + LLM fallback:</strong> 80% via regex/patterns (fast, no ML needed). 20% ambiguous cases via LLM + contextual validation. Streamlit UI for manual correction.',
+                keyDecisions: [
+                    { title: 'Pattern first', text: '95% accuracy, microseconds, no training' },
+                    { title: 'LLM fallback', text: '20% ambiguous cases only, saves compute' },
+                    { title: 'Validation layer', text: 'Check against UNSPSC db, context matching' }
+                ],
+                implementation: '<pre>matches = regex_find_codes(text)\nif confidence < 0.8:\n  llm_result = llm.extract(context)\nvalidate_against_db(matches)</pre>',
+                risks: [
+                    { risk: 'Pattern misses', prob: 'Medium', mitigation: 'LLM fallback' },
+                    { risk: 'Invalid codes', prob: 'Low', mitigation: 'Database validation' },
+                    { risk: 'Ambiguity', prob: 'Medium', mitigation: 'User interface for correction' }
+                ],
+                metrics: ['150 hours/month saved', '95% accuracy', '<30sec per contract'],
+                interviewTips: [
+                    { q: 'New code formats?', a: 'Add pattern, test before deploy' },
+                    { q: 'Missing db?', a: 'LLM validation on known codes' },
+                    { q: 'Multi-language?', a: 'Translate before pattern match' }
+                ],
+                tech: ['Regex', 'LLM', 'Streamlit', 'Python']
+            },
+            {
+                id: '08-po-extractor',
+                title: '08: Purchase Order Extractor',
+                short: '08 PO Extractor',
+                painPoint: '"POs arrive in different formats—PDF, scanned, handwritten. Manual entry is error-prone (5% error rate, €50 rework each). Current: 15min per PO."',
+                businessImpact: '250 hours/month + rework costs = €40k+',
+                discoveryQuestions: ['Format variety?', 'Vendor consistency?', 'Accuracy requirements?', 'Integration?', 'Multi-currency?'],
+                approach: '<strong>Document AI + LLM fallback + SAP integration:</strong> Document AI for layout-aware extraction (95%+ confidence). LLM for ambiguous. Validation layer checks quantities, prices. Auto-create SAP PO if high confidence.',
+                keyDecisions: [
+                    { title: 'Document AI', text: 'Pre-trained on financial docs, confidence scores' },
+                    { title: 'Validation', text: 'Quantity/price plausibility, vendor match' },
+                    { title: 'Graceful escalation', text: 'Low confidence → manual review' }
+                ],
+                implementation: '<pre>extracted = doc_ai.process(po)\nif extracted.confidence > 0.9:\n  validate_and_create_sap(extracted)\nelse:\n  queue_for_review(extracted)</pre>',
+                risks: [
+                    { risk: 'Complex POs', prob: 'Medium', mitigation: 'Multi-page handling' },
+                    { risk: 'Extraction fails', prob: 'Low', mitigation: 'Confidence check, escalate' },
+                    { risk: 'Integration', prob: 'Medium', mitigation: 'API to SAP' }
+                ],
+                metrics: ['250 hours saved', '<1% error rate', '<1min processing', '80% auto-approval'],
+                interviewTips: [
+                    { q: 'Handwritten POs?', a: 'Pre-scan for OCR optimization' },
+                    { q: 'Template variation?', a: 'Retrain model per vendor' },
+                    { q: 'Multi-line items?', a: 'Document AI handles by design' }
+                ],
+                tech: ['Document AI', 'LLM', 'SAP', 'Python']
+            },
+            {
+                id: '09-capability-matcher',
+                title: '09: AI Capability Matcher',
+                short: '09 Capability Matcher',
+                painPoint: '"Sales team spends hours matching customer needs to products. 10k+ product catalog. Manual matching misses better alternatives (60% success rate)."',
+                businessImpact: '1 hour/customer → Fast matching • 60% success → 90% goal • Higher accuracy = more sales',
+                discoveryQuestions: ['Product structure?', 'Metadata available?', 'Product count?', 'Matching process?', 'Exact or similar?'],
+                approach: '<strong>Embeddings + HANA Vector Search:</strong> Use free sentence-transformers (384-dim). Embed all products once (batch). Customer needs → embedding → cosine search in HANA. Rank by relevance. Fast + accurate.',
+                keyDecisions: [
+                    { title: 'sentence-transformers', text: 'Free, offline, 384-dim, trained on pairs' },
+                    { title: 'HANA vectors', text: 'Cosine similarity search, handles scale' },
+                    { title: 'One-time embedding', text: 'Batch embed all products, cache' }
+                ],
+                implementation: '<pre>model = SentenceTransformer("all-MiniLM-L6-v2")\nfor product in products:\n  embedding = model.encode(product.text)\n  save_to_hana(embedding)</pre>',
+                risks: [
+                    { risk: 'Embedding quality', prob: 'Low', mitigation: 'sentence-transformers proven' },
+                    { risk: 'Product metadata gaps', prob: 'Medium', mitigation: 'Enrich before embed' },
+                    { risk: 'Scaling', prob: 'Low', mitigation: 'HANA handles 100k+' }
+                ],
+                metrics: ['90% relevance', '+5% conversion', '<1sec search', '95% usage'],
+                interviewTips: [
+                    { q: 'Different embedding models?', a: 'sentence-transformers best for business. OpenAI costs €.' },
+                    { q: 'Update products?', a: 'Re-embed batch, store version' },
+                    { q: 'New categories?', a: 'Add products, embed, deploy new index' }
+                ],
+                tech: ['sentence-transformers', 'HANA', 'Vector Search', 'Python']
+            },
+            {
+                id: '10-email-agent',
+                title: '10: Email Agent',
+                short: '10 Email Agent',
+                painPoint: '"500+ emails daily. Manual routing to Sales/Support/Finance is 2 hours/day (1 FTE). 20% misrouted. Need intelligent triage with draft responses."',
+                businessImpact: '1 FTE saved • 20% misrouting → near-zero • Draft responses = faster resolution',
+                discoveryQuestions: ['Email volume?', 'Team count?', 'Intent types?', 'Response drafting?', 'Compliance?'],
+                approach: '<strong>LLM classification + entity extraction + rule-based routing:</strong> Classify intent (sales, support, complaint, billing). Extract customer, product, issue. Route per rules. Generate draft response template. Escalate complex queries.',
+                keyDecisions: [
+                    { title: 'LLM classification', text: 'Claude handles nuance: sales vs complaint vs general' },
+                    { title: 'Hybrid routing', text: 'LLM intent + rule-based team mapping' },
+                    { title: 'Draft responses', text: 'Template + entity substitution, human review' }
+                ],
+                implementation: '<pre>intent = llm.classify(email)\nentities = llm.extract(email)\nroute = rules[intent]\nqueue_to_team(route, email)</pre>',
+                risks: [
+                    { risk: 'Misclassification', prob: 'Medium', mitigation: 'High confidence only, escalate' },
+                    { risk: 'Tone misses', prob: 'Medium', mitigation: 'Sentiment analysis, escalate complaints' },
+                    { risk: 'Integration', prob: 'Medium', mitigation: 'Graph API for Outlook' }
+                ],
+                metrics: ['1 FTE saved', '<2% misroute', '>80% with draft', '<30min first response'],
+                interviewTips: [
+                    { q: 'Sentiment?', a: 'Add sentiment layer, escalate negatives' },
+                    { q: 'Spam?', a: 'Filter before classification' },
+                    { q: 'Multi-language?', a: 'LLM handles, translate if needed' }
+                ],
+                tech: ['LLM', 'Graph API', 'Python', 'FastAPI']
+            },
+            {
+                id: '11-document-outlier',
+                title: '11: Document Outlier Detection',
+                short: '11 Document Outlier',
+                painPoint: '"Process thousands of documents monthly. Some are fraudulent or contain errors. Need automatic outlier flagging before system entry."',
+                businessImpact: '€200k/year fraud • 95% catch target • <2% false positive',
+                discoveryQuestions: ['Document types?', 'Fraud signals?', 'Volume?', 'Metadata?', 'Verification?'],
+                approach: '<strong>Isolation Forest on document features:</strong> Extract metadata (size, fonts, numeric patterns, consistency). Unsupervised IF model. SHAP explanations. Similar to order anomaly but for documents.',
+                keyDecisions: [
+                    { title: 'Isolation Forest', text: 'Unsupervised, fast, good for fraud' },
+                    { title: 'Feature engineering', text: 'Size, fonts, numeric patterns, consistency' },
+                    { title: 'SHAP explain', text: 'Why is doc unusual?' }
+                ],
+                implementation: '<pre>features = extract_doc_features(doc)\nmodel = IsolationForest()\nscore = model.score_samples([features])\nexplain = shap.explain(score)</pre>',
+                risks: [
+                    { risk: 'Feature gaps', prob: 'Medium', mitigation: 'Iterative feature engineering' },
+                    { risk: 'Legitimate outliers', prob: 'Medium', mitigation: 'Review, adjust threshold' },
+                    { risk: 'Complex fraud', prob: 'Low', mitigation: 'Unknown unknowns, fallback to manual' }
+                ],
+                metrics: ['95% fraud catch', '<2% false positive', '€150k savings', '>99% uptime'],
+                interviewTips: [
+                    { q: 'New fraud patterns?', a: 'Periodic model retraining' },
+                    { q: 'Legitimate variance?', a: 'Threshold tuning, business review' },
+                    { q: 'Evolution?', a: 'Combine with supervised learning if labeled fraud' }
+                ],
+                tech: ['Isolation Forest', 'SHAP', 'Python', 'scikit-learn']
+            },
+            {
+                id: '12-negotiation',
+                title: '12: Intelligent Negotiation Assistant',
+                short: '12 Negotiation',
+                painPoint: '"Supplier negotiations lack data. Is price good? What did we pay before? Market rate? Need benchmarking to negotiate better. Current savings: 5-10%, target: 15-20%."',
+                businessImpact: '€100M spend • 10% underoptimization = €10M opportunity',
+                discoveryQuestions: ['Historical pricing?', 'Timeline?', 'Compliance constraints?', 'Suppliers?', 'Data?'],
+                approach: '<strong>Benchmark analysis + LLM tactics + counter-offer generation:</strong> Compare current quote to history & market. LLM recommends negotiation angle. Generate counter-offer template with rationale.',
+                keyDecisions: [
+                    { title: 'Data-driven', text: 'Historical + market benchmarks ground negotiation' },
+                    { title: 'LLM tactics', text: 'Business-aware negotiation recommendations' },
+                    { title: 'Template generator', text: 'Structured counter-offer' }
+                ],
+                implementation: '<pre>benchmark = compare_to_history_and_market(quote)\ntactics = llm.recommend(benchmark)\ncounter = generate_offer(tactics)</pre>',
+                risks: [
+                    { risk: 'Bad benchmark', prob: 'Medium', mitigation: 'Data quality check' },
+                    { risk: 'Supplier walks', prob: 'Low', mitigation: 'Walk-away threshold' },
+                    { risk: 'Compliance', prob: 'Medium', mitigation: 'Price floor rules' }
+                ],
+                metrics: ['15% savings vs 5-10%', '€5-10M annual', '<2day process', '>80% acceptance'],
+                interviewTips: [
+                    { q: 'No historical data?', a: 'Use market indices, third-party benchmarks' },
+                    { q: 'Relationship risk?', a: 'Balance aggressiveness with partnership' },
+                    { q: 'Volume discounts?', a: 'Negotiate separately' }
+                ],
+                tech: ['LLM', 'Data Analysis', 'Python']
+            },
+            {
+                id: '13-product-search',
+                title: '13: Product Catalog Search',
+                short: '13 Product Search',
+                painPoint: '"Keyword search returns poor results. Customers describe needs, don\'t find relevant products. 60% search relevance → lose conversions."',
+                businessImpact: '60% relevance → 90% goal • 5% conversion uplift per 10% relevance gain',
+                discoveryQuestions: ['Catalog size?', 'Metadata?', 'Search behavior?', 'Personalization?', 'Mobile?'],
+                approach: '<strong>Same as Capability Matcher but consumer UX:</strong> Semantic embeddings + vector search. Simple search box. Visual results. "Why" explanations. Related products. Analytics on search trends.',
+                keyDecisions: [
+                    { title: 'Consumer UX', text: 'Simple vs B2B detailed requirements' },
+                    { title: 'Personalization', text: 'Show based on customer history' },
+                    { title: 'Analytics', text: 'Track what customers search for' }
+                ],
+                implementation: '<pre>query_embedding = model.encode(user_query)\nresults = hana_vector_search(query_embedding)\nrank_by_relevance_and_history(results)</pre>',
+                risks: [
+                    { risk: 'Slow search', prob: 'Low', mitigation: 'HANA indices' },
+                    { risk: 'Wrong results', prob: 'Medium', mitigation: 'Feedback loop' },
+                    { risk: 'Stale data', prob: 'Low', mitigation: 'Daily product embedding update' }
+                ],
+                metrics: ['90% relevance', '+5% conversion', '<1sec', '>95% usage'],
+                interviewTips: [
+                    { q: 'Filters?', a: 'Add price/category filters post-search' },
+                    { q: 'New products?', a: 'Batch embed daily' },
+                    { q: 'No purchase history?', a: 'Cold start with trending' }
+                ],
+                tech: ['sentence-transformers', 'HANA Vector', 'React/Vue']
+            },
+            {
+                id: '14-pdf-extraction',
+                title: '14: AI PDF Information Extraction',
+                short: '14 PDF Extraction',
+                painPoint: '"Hundreds of PDFs daily—reports, contracts, forms. Manual extraction is slow and error-prone (10% error rate). Current: 30min per doc."',
+                businessImpact: '250 hours/month • 10% errors → 50 issues/month',
+                discoveryQuestions: ['Document types?', 'Layout complexity?', 'Data accuracy?', 'Integration?', 'Volume?'],
+                approach: '<strong>GPT-4 Vision + layout analysis + multi-modal extraction:</strong> Page-by-page processing. Vision LLM for complex layouts. Structured data + tables. Validation layer. JSON export for downstream.',
+                keyDecisions: [
+                    { title: 'Vision LLM', text: 'Claude handles handwriting, complex layouts, images' },
+                    { title: 'Page-by-page', text: 'Manage token limits, avoid hallucination' },
+                    { title: 'Validation', text: 'Data type checks, cross-field consistency' }
+                ],
+                implementation: '<pre>for page in convert_pdf_to_images(pdf):\n  result = claude.analyze(page)\n  validate(result)\n  merge_results()</pre>',
+                risks: [
+                    { risk: 'Large documents', prob: 'Medium', mitigation: 'Page-by-page, merge' },
+                    { risk: 'OCR quality', prob: 'Medium', mitigation: 'Preprocessing' },
+                    { risk: 'Missing fields', prob: 'Low', mitigation: 'Validation, escalate' }
+                ],
+                metrics: ['80+ hours/month', '<1% error', '<5min/doc', '>95% completion'],
+                interviewTips: [
+                    { q: 'Tables?', a: 'Vision LLM + structure extraction to CSV' },
+                    { q: 'Handwriting?', a: 'Pre-scan cleanup, confidence threshold' },
+                    { q: 'Archive scanning?', a: 'Batch processing, parallel jobs' }
+                ],
+                tech: ['Claude Vision', 'GPT-4', 'Python', 'JSON']
+            },
+            {
+                id: '15-sales-order',
+                title: '15: Sales Order Extractor',
+                short: '15 Sales Order',
+                painPoint: '"Sales orders in varied formats. Manual SAP entry is slow (20min each) & error-prone. 50 orders/day = 80 hours/week waste."',
+                businessImpact: '80 hours/week saved • Faster fulfillment • Lower errors',
+                discoveryQuestions: ['Order formats?', 'Customer data?', 'Item validation?', 'Integration?', 'Accuracy?'],
+                approach: '<strong>Document AI + LLM fallback + SAP SD integration:</strong> Similar to PO Extractor but customer-facing. Extract customer, items, quantities, delivery date. Validate customer/items exist. Auto-create SD order if high confidence.',
+                keyDecisions: [
+                    { title: 'Document AI', text: 'Layout-aware, pre-trained' },
+                    { title: 'SAP integration', text: 'Auto-create orders directly' },
+                    { title: 'Escalation', text: 'Low confidence → manual review' }
+                ],
+                implementation: '<pre>extracted = doc_ai.extract_sales_order(doc)\nif extracted.confidence > 0.9:\n  create_sap_sd_order(extracted)\nelse:\n  queue_for_review(extracted)</pre>',
+                risks: [
+                    { risk: 'Customer lookup fails', prob: 'Medium', mitigation: 'Manual review, create new' },
+                    { risk: 'Item codes wrong', prob: 'Medium', mitigation: 'Validation, escalate' },
+                    { risk: 'Integration down', prob: 'Low', mitigation: 'Queue, retry' }
+                ],
+                metrics: ['80 hours/week', '<1% error', '<1min processing', '80% auto-create'],
+                interviewTips: [
+                    { q: 'New customers?', a: 'Create customer record, then order' },
+                    { q: 'Missing items?', a: 'Item validation library' },
+                    { q: 'Partial orders?', a: 'Split or escalate' }
+                ],
+                tech: ['Document AI', 'SAP SD', 'Python', 'API']
+            },
+            {
+                id: '16-rfqx',
+                title: '16: RFQx Document Analysis',
+                short: '16 RFQx Analysis',
+                painPoint: '"Manual RFQ comparison tedious. 10+ suppliers, different formats. Analyzing takes 8 hours per project. 20 projects/month."',
+                businessImpact: '160 hours/month • Better vendor selection = savings',
+                discoveryQuestions: ['Supplier count?', 'Document formats?', 'Comparison criteria?', 'Decision process?', 'Frequency?'],
+                approach: '<strong>Multi-page Streamlit + extraction + comparison matrix + knowledge graph:</strong> Upload RFQs, extract structured data. Generate comparison matrix. Visualize supplier network. AI narrative recommendations.',
+                keyDecisions: [
+                    { title: 'Streamlit UI', text: 'Fast MVP, interactive multi-page' },
+                    { title: 'Comparison matrix', text: 'Side-by-side vendor evaluation' },
+                    { title: 'Knowledge graph', text: 'Visual supplier relationships' }
+                ],
+                implementation: '<pre>st.file_uploader("Upload RFQ")\nextracted = extract_rfq(file)\ncomparison = generate_matrix(all_rfqs)\nshow_recommendations(llm_analysis)</pre>',
+                risks: [
+                    { risk: 'Extraction quality', prob: 'Medium', mitigation: 'LLM review' },
+                    { risk: 'Comparison bias', prob: 'Medium', mitigation: 'Weight adjustments' },
+                    { risk: 'Decision complexity', prob: 'Low', mitigation: 'Scenario analysis' }
+                ],
+                metrics: ['160 hours/month', 'Better decisions', '<8hour analysis', 'Transparent scoring'],
+                interviewTips: [
+                    { q: 'Weighted scoring?', a: 'Adjustable weights per category' },
+                    { q: 'What-if analysis?', a: 'Scenario simulation' },
+                    { q: 'Supplier negotiations?', a: 'Export recommendation for discussion' }
+                ],
+                tech: ['Streamlit', 'LLM', 'Knowledge Graph', 'Python']
+            },
+            {
+                id: '17-email-cockpit',
+                title: '17: AI-Powered Email Cockpit',
+                short: '17 Email Cockpit',
+                painPoint: '"Emails scattered in Outlook. No business intelligence. Missing follow-ups (20%). Response time varies 2h to 2 days. Need centralized visibility."',
+                businessImpact: 'Centralized email tracking • 20% follow-up recovery • Response time consistency',
+                discoveryQuestions: ['Email volume?', 'CRM integration?', 'Analytics needed?', 'Action tracking?', 'Team size?'],
+                approach: '<strong>Streamlit cockpit + FastAPI backend + Outlook integration:</strong> Collect emails, extract entities, sentiment, action items. Dashboard: unread by priority, SLA tracking, customer engagement timeline. CRM linking.',
+                keyDecisions: [
+                    { title: 'Streamlit dashboard', text: 'Quick visualization + KPIs' },
+                    { title: 'Email analysis', text: 'Sentiment, actions, CRM entities' },
+                    { title: 'CRM sync', text: 'Link to opportunities, deals' }
+                ],
+                implementation: '<pre>st.metric("Unread", count_unread())\nst.dataframe(emails_by_priority())\nst.line_chart(response_time_trend())</pre>',
+                risks: [
+                    { risk: 'Privacy', prob: 'High', mitigation: 'Secure data, compliance' },
+                    { risk: 'Integration', prob: 'Medium', mitigation: 'API reliability' },
+                    { risk: 'Data volume', prob: 'Low', mitigation: 'Archive, retention policy' }
+                ],
+                metrics: ['100% email visibility', '30% faster response', '94% SLA', '<2h avg'],
+                interviewTips: [
+                    { q: 'Confidential emails?', a: 'Role-based access, encryption' },
+                    { q: 'Email overload?', a: 'Smart filtering, priority ranking' },
+                    { q: 'Spam?', a: 'LLM classification, auto-archive' }
+                ],
+                tech: ['Streamlit', 'FastAPI', 'Graph API', 'LLM']
+            },
+            {
+                id: '18-vendor-selection',
+                title: '18: Vendor Selection Optimization',
+                short: '18 Vendor Select',
+                painPoint: '"Manual vendor selection on spreadsheets. Sometimes pick expensive vendors when better options exist. Procurement: €100M/year, optimized poorly."',
+                businessImpact: '10-15% cost reduction opportunity = €10M savings',
+                discoveryQuestions: ['Vendor attributes?', 'Selection criteria?', 'Volume needed?', 'Risk tolerance?', 'Single-source?'],
+                approach: '<strong>Multi-criteria scoring + linear programming optimization:</strong> Collect vendor attributes (cost, quality, lead time, reliability, risk). Weighted scoring. LP optimization for allocation. Scenario analysis for risks.',
+                keyDecisions: [
+                    { title: 'Scoring model', text: 'Weighted criteria, adjustable by category' },
+                    { title: 'Linear programming', text: 'Optimal allocation respecting constraints' },
+                    { title: 'Resilience', text: 'Geographic diversification, single-source limits' }
+                ],
+                implementation: '<pre>scores = [calculate_score(v) for v in vendors]\nresult = minimize(cost, bounds=bounds, constraints=constraints)\noptimal_allocation = result.x</pre>',
+                risks: [
+                    { risk: 'Vendor bankruptcy', prob: 'Low', mitigation: 'Risk scoring, diversification' },
+                    { risk: 'Price variance', prob: 'Medium', mitigation: 'Volume negotiations' },
+                    { risk: 'Quality issues', prob: 'Low', mitigation: 'SLA, penalties' }
+                ],
+                metrics: ['€10M savings', '>95% supply', '<3day supplier switch', 'Zero disruption'],
+                interviewTips: [
+                    { q: 'Strategic vendors?', a: 'Constraints for relationship preservation' },
+                    { q: 'New vendors?', a: 'Pilot allocation, ramp up' },
+                    { q: 'Market changes?', a: 'Quarterly re-optimization' }
+                ],
+                tech: ['scipy optimize', 'Python', 'Pandas', 'Linear Programming']
+            },
+            {
+                id: '19-touchless',
+                title: '19: Touchless Transactions (GR & Invoice)',
+                short: '19 Touchless Trans',
+                painPoint: '"3-way match (PO→GR→Invoice) is 80% manual review. Invoices with variance held for approval. Most within tolerance. Current: 30min per invoice."',
+                businessImpact: '200+ hours/month • €50k+ saved via automation',
+                discoveryQuestions: ['Variance tolerance?', 'Exception types?', 'Volume?', 'Audit?', 'Integration?'],
+                approach: '<strong>Rule-based 7-scenario classification:</strong> Perfect match → auto-approve. Within tolerance → auto-approve. Price variance → flag for negotiation. Missing GR → hold. Duplicates → reject. Major variance/out-of-policy → escalate.',
+                keyDecisions: [
+                    { title: 'Rules not ML', text: 'Deterministic, auditable, compliant' },
+                    { title: '7 scenarios', text: 'Covers 95%+ of cases' },
+                    { title: 'Audit trail', text: 'Every decision logged' }
+                ],
+                implementation: '<pre>scenario = classify_variance(po, gr, invoice)\nif scenario in [1, 2]:  # Perfect or tolerance\n  auto_approve()\nelif scenario in [3, 4, 5]:\n  route_to_team(scenario)\nelse:\n  escalate()</pre>',
+                risks: [
+                    { risk: 'Rule gaps', prob: 'Low', mitigation: 'Scenario coverage >95%' },
+                    { risk: 'Vendor disputes', prob: 'Medium', mitigation: 'Clear communication' },
+                    { risk: 'Compliance', prob: 'High', mitigation: 'Audit trail, documentation' }
+                ],
+                metrics: ['200+ hours saved', '80% auto-approve', '<5min review', '>99.5% accuracy'],
+                interviewTips: [
+                    { q: 'New scenarios?', a: 'Add rules, test, deploy' },
+                    { q: 'Tolerance change?', a: 'Update rules, communicate' },
+                    { q: 'Exception appeal?', a: 'Manual override with approval' }
+                ],
+                tech: ['Rule Engine', 'Python', 'SAP', 'Audit Log']
+            },
+            {
+                id: '20-utilities-rate',
+                title: '20: Utilities Rate Compare & Export',
+                short: '20 Utilities Rate',
+                painPoint: '"Complex utility tariffs across suppliers. Comparing rates manually is tedious. Potential: 10-15% savings on €5M spend = €500k+ opportunity."',
+                businessImpact: '€500k+/year savings • Better rates negotiation • Cost transparency',
+                discoveryQuestions: ['Supplier count?', 'Usage patterns?', 'Data format?', 'Billing cycles?', 'Contract terms?'],
+                approach: '<strong>Streamlit interface + rate parsing + projection engine:</strong> Upload bills/tariffs. Parse tier structures. Analyze historical usage. Project costs under different tariffs. Compare and recommend optimal plan.',
+                keyDecisions: [
+                    { title: 'Streamlit UI', text: 'Upload, compare, export' },
+                    { title: 'Rate parsing', text: 'Extract tier structures, surcharges' },
+                    { title: 'Projection', text: 'Historical usage → future costs' }
+                ],
+                implementation: '<pre>rates = parse_tariff_document(file)\nusage = analyze_historical(bills)\nprojection = calculate_costs(usage, rates)\nshow_comparison(projections)</pre>',
+                risks: [
+                    { risk: 'Rate parsing', prob: 'Medium', mitigation: 'Manual review' },
+                    { risk: 'Usage variance', prob: 'Low', mitigation: 'Trend analysis' },
+                    { risk: 'Contract lock-in', prob: 'Medium', mitigation: 'Early termination costs' }
+                ],
+                metrics: ['€500k savings', '15% reduction', 'Quarterly reviews', 'Transparent pricing'],
+                interviewTips: [
+                    { q: 'Multiple utilities?', a: 'Separate analysis per utility' },
+                    { q: 'Seasonal variation?', a: 'Adjust projection by season' },
+                    { q: 'Fixed vs variable?', a: 'Separate analysis, optimize mix' }
+                ],
+                tech: ['Streamlit', 'Python', 'Data Analysis']
+            },
+            {
+                id: '21-tariff-cockpit',
+                title: '21: Utilities Tariff Mapping Cockpit',
+                short: '21 Tariff Cockpit',
+                painPoint: '"Rates change quarterly. Tracking scattered across emails/spreadsheets. Missing optimization opportunities (5-10 better deals/year). €200k+ savings lost."',
+                businessImpact: '€200k+/year savings from timely optimization • Centralized tracking',
+                discoveryQuestions: ['Tariff count?', 'Update frequency?', 'Alerts needed?', 'Optimization scope?', 'Team size?'],
+                approach: '<strong>React cockpit + tariff master data + monitoring + alerts:</strong> Dashboard showing active tariffs, rate changes, savings opportunities. Alert when rates increase or better options available. Contract renewal tracking.',
+                keyDecisions: [
+                    { title: 'React UI', text: 'Real-time updates, interactive' },
+                    { title: 'Rate monitoring', text: 'Alerts on changes' },
+                    { title: 'Optimization engine', text: 'Calculate savings per alternative' }
+                ],
+                implementation: '<pre>// React component\nconst [tariffs, setTariffs] = useState([]);\nconst [alerts, setAlerts] = useState([]);\n// Monitor rate changes\nsetInterval(() => fetchAndCompare(), 3600000);</pre>',
+                risks: [
+                    { risk: 'Data quality', prob: 'Medium', mitigation: 'Manual verification' },
+                    { risk: 'Market volatility', prob: 'Medium', mitigation: 'Weekly updates' },
+                    { risk: 'Missed opportunities', prob: 'Low', mitigation: 'Proactive monitoring' }
+                ],
+                metrics: ['€200k savings', 'Zero missed deals', '<1day response', '>99% uptime'],
+                interviewTips: [
+                    { q: 'Competitor monitoring?', a: 'Third-party rate data feeds' },
+                    { q: 'Lock-in costs?', a: 'Factor into recommendation' },
+                    { q: 'Renegotiation?', a: 'Generate proposal template' }
+                ],
+                tech: ['React', 'Node.js', 'Real-time DB', 'TypeScript']
+            },
+            {
+                id: '22-teams-bot',
+                title: '22: Agentic Chatbot (Teams)',
+                short: '22 Teams Bot',
+                painPoint: '"HR/IT field 200+ employee questions daily. \'Leave balance?\', \'Expense status?\', \'Password reset?\'. Need self-service chatbot in Teams. Current: 4 FTE support."',
+                businessImpact: '60% support time saved = 2.4 FTE • Instant answers • Lower tickets',
+                discoveryQuestions: ['Question types?', 'Action taking?', 'Integration scope?', 'Escalation?', 'Languages?'],
+                approach: '<strong>Teams Bot Framework + LangGraph + SAP integration:</strong> Deploy to Teams (native adoption). LangGraph state machine for multi-turn conversations. Actions: check leave balance, status lookups, simple requests. Escalate to human for complex.',
+                keyDecisions: [
+                    { title: 'Teams platform', text: 'Employees already use, no new tool' },
+                    { title: 'LangGraph state', text: 'Multi-turn conversations, context' },
+                    { title: 'SAP backend', text: 'Direct integration for employee data' }
+                ],
+                implementation: '<pre>bot = BotFramework()\n@bot.message_handler()\ndef on_message(message):\n  graph.invoke({"text": message})\n  # Route to HR/IT if needed</pre>',
+                risks: [
+                    { risk: 'Complex requests', prob: 'Medium', mitigation: 'Escalation flow' },
+                    { risk: 'Data privacy', prob: 'High', mitigation: 'Azure AD auth, encryption' },
+                    { risk: 'Integration', prob: 'Medium', mitigation: 'API reliability' }
+                ],
+                metrics: ['60% support savings', '>80% self-serve', '<30sec response', '>90% satisfaction'],
+                interviewTips: [
+                    { q: 'Actions?', a: 'Submit requests, approvals async' },
+                    { q: 'Escalation?', a: 'Warm handoff to human in Teams thread' },
+                    { q: 'Multi-language?', a: 'LLM handles translation' }
+                ],
+                tech: ['Teams Bot Framework', 'LangGraph', 'SAP', 'Azure AD']
+            },
+            {
+                id: '23-contracts',
+                title: '23: Intelligent Procurement with Contracts',
+                short: '23 Procurement Contracts',
+                painPoint: '"Supplier contracts have specific terms but inconsistent application. Miss discounts (€500k/year). Orders bypass contract pricing. Need enforcement."',
+                businessImpact: '€500k/year from missed discounts • Target: 95% compliance (currently 70%)',
+                discoveryQuestions: ['Contract types?', 'Commodity coverage?', 'Discount complexity?', 'Enforcement?', 'Terms tracking?'],
+                approach: '<strong>Contract extraction + master data + order validation + term tracking:</strong> Extract contracts (supplier, commodity, pricing, terms). Build HANA master. On order creation: validate against contract, apply discounts, flag violations. Monitor expirations.',
+                keyDecisions: [
+                    { title: 'Contract master', text: 'HANA table: commodity, volume thresholds, discounts' },
+                    { title: 'Order-time validation', text: 'Auto-apply contract pricing' },
+                    { title: 'Compliance reporting', text: 'Track actual vs eligible discounts' }
+                ],
+                implementation: '<pre>def validate_order(order, supplier_id):\n  contract = get_contract(supplier_id)\n  for item in order.items:\n    contract_price = lookup_price(contract, item)\n    if order.price > contract_price:\n      flag_variance()</pre>',
+                risks: [
+                    { risk: 'Contract data quality', prob: 'Medium', mitigation: 'Validation layer' },
+                    { risk: 'Price disputes', prob: 'Medium', mitigation: 'Clear rules, documentation' },
+                    { risk: 'Exceptions', prob: 'Low', mitigation: 'Override with approval' }
+                ],
+                metrics: ['95% compliance', '€500k savings', '>95% auto-price', 'Full audit trail'],
+                interviewTips: [
+                    { q: 'New contracts?', a: 'Extract, validate, deploy to system' },
+                    { q: 'Contract changes?', a: 'Amendment process with versioning' },
+                    { q: 'Volume discounts?', a: 'Track year-to-date accumulation' }
+                ],
+                tech: ['Document AI', 'HANA', 'SAP', 'Python']
+            }
+        ];
+
+        function initializeTabs() {
+            const tabList = document.getElementById('usecase-tabs');
+            const content = document.getElementById('usecase-content');
+
+            useCases.forEach((uc, index) => {
+                const isActive = index === 0 ? 'active' : '';
+                const tab = document.createElement('li');
+                tab.className = 'nav-item';
+                tab.innerHTML = `<button class="nav-link ${isActive}" id="${uc.id}-tab" data-bs-toggle="tab" data-bs-target="#${uc.id}" role="tab">${uc.short}</button>`;
+                tabList.appendChild(tab);
+
+                const pane = document.createElement('div');
+                pane.className = `tab-pane fade ${isActive ? 'show active' : ''}`;
+                pane.id = uc.id;
+                pane.innerHTML = generateUseCaseContent(uc);
+                content.appendChild(pane);
+            });
+        }
+
+        function generateUseCaseContent(uc) {
+            let html = `<div class="use-case-title">${uc.title}</div>`;
+
+            html += `<div class="section-header"><i class="fas fa-exclamation-circle"></i> Pain Point</div>`;
+            html += `<div class="pain-point"><p class="quote-text">${uc.painPoint}</p><p><strong>Business Impact:</strong><br/>${uc.businessImpact}</p></div>`;
+
+            html += `<div class="section-header"><i class="fas fa-question-circle"></i> Discovery Questions</div>`;
+            html += `<div class="discovery-box"><ul>`;
+            uc.discoveryQuestions.forEach(q => html += `<li>${q}</li>`);
+            html += `</ul></div>`;
+
+            html += `<div class="section-header"><i class="fas fa-lightbulb"></i> Your Approach</div>`;
+            html += `<div class="approach-section">${uc.approach}</div>`;
+
+            html += `<div class="section-header"><i class="fas fa-chess"></i> Key Architectural Decisions</div>`;
+            uc.keyDecisions.forEach(d => {
+                html += `<div class="decision-box"><strong>✓ ${d.title}</strong><p style="margin-top: 0.5rem;">${d.text}</p></div>`;
+            });
+
+            html += `<div class="section-header"><i class="fas fa-code"></i> Implementation Walk-Through</div>`;
+            html += `${uc.implementation}`;
+
+            html += `<div class="section-header"><i class="fas fa-shield-alt"></i> Risk Mitigation</div>`;
+            html += `<table><tr><th style="width: 20%">Risk</th><th style="width: 15%">Probability</th><th>Mitigation</th></tr>`;
+            uc.risks.forEach(r => {
+                html += `<tr><td><strong>${r.risk}</strong></td><td>${r.prob}</td><td>${r.mitigation}</td></tr>`;
+            });
+            html += `</table>`;
+
+            html += `<div class="section-header"><i class="fas fa-chart-line"></i> Success Metrics</div>`;
+            html += `<div class="success-metrics"><ul>`;
+            uc.metrics.forEach(m => html += `<li>${m}</li>`);
+            html += `</ul></div>`;
+
+            html += `<div class="section-header"><i class="fas fa-lightbulb"></i> Interview Tips</div>`;
+            uc.interviewTips.forEach(tip => {
+                html += `<div class="interview-box"><strong>Q: ${tip.q}</strong><p style="margin-top: 0.5rem; margin-bottom: 0;"><strong>A:</strong> ${tip.a}</p></div>`;
+            });
+
+            html += `<div class="section-header"><i class="fas fa-tools"></i> Technology Stack</div>`;
+            html += `<div class="tech-stack">`;
+            uc.tech.forEach(t => {
+                let category = 'backend';
+                if (['UI5', 'React', 'Streamlit', 'Teams', 'JavaScript', 'TypeScript'].some(x => t.includes(x))) category = 'frontend';
+                if (['HANA', 'Redis', 'Postgres', 'Vector Tables'].some(x => t.includes(x))) category = 'db';
+                if (['Isolation Forest', 'scikit-learn', 'LangGraph', 'sentence-transformers', 'SHAP', 'LLM'].some(x => t.includes(x))) category = 'ml';
+                html += `<span class="tech-badge ${category}">${t}</span>`;
+            });
+            html += `</div>`;
+
+            return html;
+        }
+
+        document.getElementById('usecase-search').addEventListener('input', (e) => {
+            const query = e.target.value.toLowerCase();
+            const tabs = document.querySelectorAll('.nav-link');
+            tabs.forEach(tab => {
+                const text = tab.textContent.toLowerCase();
+                tab.style.display = text.includes(query) ? '' : 'none';
+            });
+        });
+
+        window.addEventListener('scroll', () => {
+            const backToTop = document.getElementById('backToTop');
+            if (window.scrollY > 300) {
+                backToTop.classList.add('show');
+            } else {
+                backToTop.classList.remove('show');
+            }
+        });
+
+        document.getElementById('backToTop').addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        document.addEventListener('DOMContentLoaded', initializeTabs);
+    </script>
+</body>
+
+</html>

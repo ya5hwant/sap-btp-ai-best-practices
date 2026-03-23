@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SAP BTP AI - 23 Use Cases (Full Content)</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/highlight.js@11.8.0/styles/atom-one-dark.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --sap-blue: #0064d9;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+            color: #333;
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--sap-blue) 0%, #0052a3 100%);
+            color: white;
+            padding: 2rem;
+            text-align: center;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 12px rgba(0, 100, 217, 0.15);
+        }
+
+        .nav-tabs {
+            border-bottom: 3px solid var(--sap-blue);
+            background: white;
+            border-radius: 12px 12px 0 0;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            flex-wrap: wrap;
+            gap: 0;
+            margin-bottom: 0;
+        }
+
+        .nav-link {
+            color: #666;
+            border: none;
+            border-bottom: 3px solid transparent;
+            font-weight: 500;
+            padding: 0.75rem 0.6rem;
+            font-size: 0.8rem;
+            transition: all 0.3s ease;
+            margin: 0;
+        }
+
+        .nav-link:hover {
+            color: var(--sap-blue);
+            background-color: rgba(0, 100, 217, 0.05);
+        }
+
+        .nav-link.active {
+            color: white;
+            background: var(--sap-blue);
+            border-bottom-color: var(--sap-blue);
+        }
+
+        .tab-content {
+            background: white;
+            border-radius: 0 0 12px 12px;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
+            padding: 2rem;
+            max-height: 90vh;
+            overflow-y: auto;
+        }
+
+        .markdown-content {
+            line-height: 1.8;
+            color: #333;
+        }
+
+        .markdown-content h1 {
+            color: var(--sap-blue);
+            font-size: 2rem;
+            margin-top: 0;
+            margin-bottom: 1.5rem;
+            border-bottom: 3px solid #f0f0f0;
+            padding-bottom: 1rem;
+        }
+
+        .markdown-content h2 {
+            color: var(--sap-blue);
+            font-size: 1.5rem;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .markdown-content h3 {
+            color: var(--sap-blue);
+            font-size: 1.2rem;
+            margin-top: 1.5rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .markdown-content p {
+            margin-bottom: 1rem;
+        }
+
+        .markdown-content ul,
+        .markdown-content ol {
+            margin-bottom: 1rem;
+            margin-left: 2rem;
+        }
+
+        .markdown-content li {
+            margin-bottom: 0.5rem;
+        }
+
+        .markdown-content code {
+            background: #f5f5f5;
+            padding: 0.2rem 0.4rem;
+            border-radius: 4px;
+            font-family: 'Courier New', monospace;
+            color: #d32f2f;
+        }
+
+        .markdown-content pre {
+            background: #1e1e1e;
+            color: #d4d4d4;
+            padding: 1rem;
+            border-radius: 8px;
+            overflow-x: auto;
+            margin: 1rem 0;
+            font-size: 0.9rem;
+        }
+
+        .markdown-content pre code {
+            background: none;
+            color: inherit;
+            padding: 0;
+        }
+
+        .markdown-content table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1rem 0;
+            font-size: 0.9rem;
+        }
+
+        .markdown-content table th {
+            background: var(--sap-blue);
+            color: white;
+            padding: 0.8rem;
+            text-align: left;
+            font-weight: 600;
+        }
+
+        .markdown-content table td {
+            padding: 0.8rem;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .markdown-content table tr:hover {
+            background: #f0f0f0;
+        }
+
+        .markdown-content blockquote {
+            border-left: 4px solid var(--sap-blue);
+            padding-left: 1rem;
+            margin-left: 0;
+            color: #666;
+            font-style: italic;
+        }
+
+        .container-main {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 1rem 2rem;
+        }
+
+        .search-box {
+            margin-bottom: 1.5rem;
+        }
+
+        .search-box input {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 1rem;
+        }
+
+        .search-box input:focus {
+            outline: none;
+            border-color: var(--sap-blue);
+            box-shadow: 0 0 0 3px rgba(0, 100, 217, 0.1);
+        }
+
+        .back-to-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            width: 50px;
+            height: 50px;
+            background: var(--sap-blue);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            box-shadow: 0 4px 12px rgba(0, 100, 217, 0.4);
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        .back-to-top:hover {
+            background: #0052a3;
+            transform: translateY(-5px);
+        }
+
+        .back-to-top.show {
+            display: flex;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 2px solid #e0e0e0;
+            color: #666;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1><i class="fas fa-brain"></i> SAP BTP AI Use Cases</h1>
+        <p>23 Complete Real-World AI/ML Implementation Patterns - Full Interview Preparation</p>
+    </header>
+
+    <div class="container-main">
+        <div class="search-box">
+            <input type="text" id="usecase-search" placeholder="🔍 Search use cases...">
+        </div>
+
+        <ul class="nav nav-tabs" id="usecase-tabs" role="tablist">
+            <!-- Tabs generated by JavaScript -->
+        </ul>
+
+        <div class="tab-content" id="usecase-content">
+            <!-- Tab content generated by JavaScript -->
+        </div>
+    </div>
+
+    <button class="back-to-top" id="backToTop">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <footer class="footer">
+        <p>© 2024 SAP BTP AI Best Practices | Complete Interview Preparation Guide</p>
+        <p style="font-size: 0.9rem; margin-top: 0.5rem;">23 Use Cases • Full Markdown Content • Interview Tips &
+            Success Metrics</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/marked@11.1.1/marked.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/highlight.js@11.8.0/highlight.min.js"></script>
+    <script>
+        // List of all 23 use cases with their filenames
+        const useCasesList = [
+            { num: '01', name: 'Post-Sales Chatbot', short: '01 Post-Sales Chatbot' },
+            { num: '02', name: 'Anomaly Detection', short: '02 Anomaly Detection' },
+            { num: '03', name: 'Customer Credit Check', short: '03 Credit Check' },
+            { num: '04', name: 'Diagram to BPMN', short: '04 Diagram BPMN' },
+            { num: '05', name: 'AI Log Analyzer', short: '05 Log Analyzer' },
+            { num: '06', name: 'Video Incident Monitoring', short: '06 Video Safety' },
+            { num: '07', name: 'Intelligent Procurement', short: '07 Procurement' },
+            { num: '08', name: 'Purchase Order Extractor', short: '08 PO Extractor' },
+            { num: '09', name: 'AI Capability Matcher', short: '09 Matcher' },
+            { num: '10', name: 'Email Agent', short: '10 Email Agent' },
+            { num: '11', name: 'Document Outlier Detection', short: '11 Outlier' },
+            { num: '12', name: 'Intelligent Negotiation', short: '12 Negotiation' },
+            { num: '13', name: 'Product Catalog Search', short: '13 Search' },
+            { num: '14', name: 'AI PDF Extraction', short: '14 PDF Extract' },
+            { num: '15', name: 'Sales Order Extractor', short: '15 Sales Order' },
+            { num: '16', name: 'RFQx Analysis', short: '16 RFQx' },
+            { num: '17', name: 'Email Cockpit', short: '17 Cockpit' },
+            { num: '18', name: 'Vendor Selection', short: '18 Vendor' },
+            { num: '19', name: 'Touchless Transactions', short: '19 Touchless' },
+            { num: '20', name: 'Utilities Rate Compare', short: '20 Utilities' },
+            { num: '21', name: 'Tariff Cockpit', short: '21 Tariff' },
+            { num: '22', name: 'Agentic Chatbot Teams', short: '22 Teams' },
+            { num: '23', name: 'Procurement Contracts', short: '23 Contracts' }
+        ];
+
+        // Configure marked for markdown rendering
+        marked.setOptions({
+            breaks: true,
+            gfm: true,
+        });
+
+        async function loadMarkdownFile(num) {
+            const filePath = `./USE_CASES/${num.padStart(2, '0')}_${getFileName(num)}.md`;
+            try {
+                const response = await fetch(filePath);
+                if (!response.ok) {
+                    return `<p style="color: red;">Could not load use case ${num}</p>`;
+                }
+                const markdown = await response.text();
+                const html = marked.parse(markdown);
+                return html;
+            } catch (error) {
+                console.error(`Error loading ${filePath}:`, error);
+                return `<p style="color: red;">Error loading use case ${num}: ${error.message}</p>`;
+            }
+        }
+
+        function getFileName(num) {
+            const names = {
+                '01': 'Post_Sales_Chatbot',
+                '02': 'Anomaly_Detection',
+                '03': 'Customer_Credit_Check',
+                '04': 'Diagram_to_BPMN',
+                '05': 'AI_Log_Analyzer',
+                '06': 'Video_Incident_Monitoring',
+                '07': 'Intelligent_Procurement',
+                '08': 'Purchase_Order_Extractor',
+                '09': 'AI_Capability_Matcher',
+                '10': 'Email_Agent',
+                '11': 'Document_Outlier_Detection',
+                '12': 'Intelligent_Negotiation',
+                '13': 'Product_Catalog_Search',
+                '14': 'AI_PDF_Extraction',
+                '15': 'Sales_Order_Extractor',
+                '16': 'RFQx_Analysis',
+                '17': 'Email_Cockpit',
+                '18': 'Vendor_Selection',
+                '19': 'Touchless_Transactions',
+                '20': 'Utilities_Rate_Compare',
+                '21': 'Utilities_Tariff_Cockpit',
+                '22': 'Agentic_Chatbot_Teams',
+                '23': 'Intelligent_Procurement_Contracts'
+            };
+            return names[num];
+        }
+
+        async function initializeTabs() {
+            const tabList = document.getElementById('usecase-tabs');
+            const content = document.getElementById('usecase-content');
+
+            useCasesList.forEach((uc, index) => {
+                // Create tab button
+                const tab = document.createElement('li');
+                tab.className = 'nav-item';
+                const isActive = index === 0 ? 'active' : '';
+                tab.innerHTML = `<button class="nav-link ${isActive}" id="tab-${uc.num}" data-bs-toggle="tab" data-bs-target="#content-${uc.num}" role="tab">${uc.short}</button>`;
+                tabList.appendChild(tab);
+
+                // Create tab pane
+                const pane = document.createElement('div');
+                pane.className = `tab-pane fade markdown-content ${isActive ? 'show active' : ''}`;
+                pane.id = `content-${uc.num}`;
+                pane.innerHTML = '<p><i class="fas fa-spinner fa-spin"></i> Loading...</p>';
+                content.appendChild(pane);
+
+                // Load markdown content
+                loadMarkdownFile(uc.num).then(html => {
+                    pane.innerHTML = html;
+                    // Highlight code blocks
+                    pane.querySelectorAll('pre code').forEach(block => {
+                        hljs.highlightElement(block);
+                    });
+                });
+            });
+        }
+
+        // Search functionality
+        document.getElementById('usecase-search').addEventListener('input', (e) => {
+            const query = e.target.value.toLowerCase();
+            const tabs = document.querySelectorAll('.nav-link');
+            tabs.forEach(tab => {
+                const text = tab.textContent.toLowerCase();
+                tab.style.display = text.includes(query) ? '' : 'none';
+            });
+        });
+
+        // Back to top button
+        window.addEventListener('scroll', () => {
+            const backToTop = document.getElementById('backToTop');
+            if (window.scrollY > 300) {
+                backToTop.classList.add('show');
+            } else {
+                backToTop.classList.remove('show');
+            }
+        });
+
+        document.getElementById('backToTop').addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // Initialize on page load
+        document.addEventListener('DOMContentLoaded', initializeTabs);
+    </script>
+</body>
+
+</html>
